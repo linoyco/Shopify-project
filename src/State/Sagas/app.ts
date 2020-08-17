@@ -6,11 +6,11 @@ import * as Api from '../../Api';
 function* fetchDataFlow() {
     try {
         const res = yield call(Api.getOrdersRequest);
-        console.log(res.data);
-        yield put({ type: SAVE_DATA, data: res.data });        
+        // console.log(res.data);
+        // yield put({ type: SAVE_DATA, data: res.data });        
     }
     catch (error) {
-        console.log(error.message);
+        console.log(error);
     }
 };
 
