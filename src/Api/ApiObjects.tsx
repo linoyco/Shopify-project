@@ -1,6 +1,6 @@
 //https://chf-avraham.myshopify.com/admin/api/2020-04/orders.json
 
-export interface IOrderObjApi {
+export interface IOrdersObjApi {
     id: number,
     email: string,
     closed_at: null,
@@ -359,11 +359,6 @@ export interface ILineItemsObj {
         }
     ]
 }
-
-export interface IObjApi {
-    orders: Array<IOrderObjApi>;
-}
-
 
 // {
 //     "orders": [

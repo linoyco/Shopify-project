@@ -1,5 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { createGlobalStyle } from 'styled-components';
+import { Dispatch } from 'redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchData } from './State/Actions/App';
 
 // import background from './images/countries.jpg';
 // background-image: url(${background}); 
@@ -49,6 +52,12 @@ const GlobalStyle = createGlobalStyle`
 
 
 const App: React.FunctionComponent = () => {
+  const dispatch: Dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchData());
+  });
+
   return (
     <div className='App'>
       <GlobalStyle />
