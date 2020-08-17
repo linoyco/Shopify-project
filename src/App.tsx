@@ -1,24 +1,58 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { createGlobalStyle } from 'styled-components';
 
-function App() {
+// import background from './images/countries.jpg';
+// background-image: url(${background}); 
+
+const GlobalStyle = createGlobalStyle`
+  html{
+  height: 100%;
+  font-family: arial;
+  background-size: cover;
+  }
+  body {
+    font-weight: bold;
+    padding: 0;
+    margin:0;
+    height: 100%;
+  }
+  .App{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  .Game{
+    background-color: white;
+    border: 5px solid black;
+    width: 87vw;
+    height: 87vh;
+  }
+  .Header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 9vh;
+    background-color: black;
+    padding:1.5%;
+  }
+  .Header-Text{
+    font-size: 5vw;
+    font-weigh: bold;
+    color: yellow;  
+    text-shadow: 3px 3px 4px gray; 
+  }
+`;
+
+
+
+const App: React.FunctionComponent = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <GlobalStyle />
+Hello
     </div>
   );
 }
