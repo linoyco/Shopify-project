@@ -1,10 +1,9 @@
 import produce from 'immer';
 
 import { appActionType, SAVE_DATA } from '../Actions/App/types';
-import { IOrdersObjApi } from '../../Api/ApiObjects';
 
 export interface IAppState {
-    data: Array<IOrdersObjApi>;
+    data: Array<any>;
 }
 
 const initialState: IAppState = {

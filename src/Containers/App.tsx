@@ -2,9 +2,10 @@ import React, { useEffect } from 'react';
 import { createGlobalStyle } from 'styled-components';
 import { Dispatch } from 'redux';
 import { useDispatch } from 'react-redux';
-import AppRoutes from "./AppRoutes";
 
-import { fetchData } from '../State/Actions/App';
+import AppRoutes from "./AppRoutes";
+import { saveData } from '../State/Actions/App';
+import { demoData } from '../Api/DemoApi';
 
 const GlobalStyle = createGlobalStyle`
   html{
@@ -26,7 +27,7 @@ const App: React.FunctionComponent = () => {
   const dispatch: Dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchData());
+    dispatch(saveData(demoData));
   });
 
   return (

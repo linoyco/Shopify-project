@@ -1,21 +1,33 @@
 import * as React from 'react';
-import Paper from '@material-ui/core/Paper';
-// import { ArgumentAxis, ValueAxis, Chart, LineSeries } from '@devexpress/dx-react-chart-material-ui';
+import '../node_modules/react-vis/dist/style.css';
+import { XYPlot, LineSeries, VerticalGridLines, HorizontalGridLines, XAxis } from 'react-vis';
 
-const data = [
-    { argument: 1, value: 10 },
-    { argument: 2, value: 20 },
-    { argument: 3, value: 30 },
-];
+const CustomCart: React.FunctionComponent = () => {
 
-const CustomCart: React.FunctionComponent = () => (
-    <Paper>
-        {/* <Chart data={data}>
-            <ArgumentAxis />
-            <ValueAxis />
-            <LineSeries valueField="value" argumentField="argument" />
-        </Chart> */}
-    </Paper >
-);
+    const data = [
+        { x: 0, y: 8 },
+        { x: 1, y: 7 },
+        { x: 2, y: 6 },
+        { x: 3, y: 5 },
+        { x: 4, y: 4 },
+        { x: 5, y: 5 },
+        { x: 6, y: 6 },
+        { x: 7, y: 7 },
+        { x: 8, y: 6 },
+        { x: 9, y: 0 }
+    ];
+
+    return (
+        <div>
+            <XYPlot height={500} width={500}>
+                <VerticalGridLines />
+                <HorizontalGridLines />
+                <XAxis />
+                <XAxis />
+                <LineSeries curve={'curveMonotoneX'} data={data} />
+            </XYPlot>
+        </div>
+    );
+}
 
 export default CustomCart;
