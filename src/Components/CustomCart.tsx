@@ -1,6 +1,7 @@
 import * as React from 'react';
-import '../node_modules/react-vis/dist/style.css';
-import { XYPlot, LineSeries, VerticalGridLines, HorizontalGridLines, XAxis } from 'react-vis';
+import 'react-vis/dist/style.css';
+import { XYPlot, LineSeries, XAxis, YAxis } from 'react-vis';
+import { Paper } from '@material-ui/core';
 
 const CustomCart: React.FunctionComponent = () => {
 
@@ -18,15 +19,13 @@ const CustomCart: React.FunctionComponent = () => {
     ];
 
     return (
-        <div>
-            <XYPlot height={500} width={500}>
-                <VerticalGridLines />
-                <HorizontalGridLines />
-                <XAxis />
+        <Paper>
+            <XYPlot height={160} width={235}>
+                <YAxis />
                 <XAxis />
                 <LineSeries curve={'curveMonotoneX'} data={data} />
             </XYPlot>
-        </div>
+        </Paper>
     );
 }
 
