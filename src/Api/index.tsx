@@ -6,6 +6,9 @@ const password = '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';
 
 let Axios = axios.create({
     baseURL: 'https://chf-avraham.myshopify.com/',
+    headers: {
+        'Access-Control-Allow-Origin': '*'
+    },
     auth: {
         username: username,
         password: password
@@ -16,8 +19,7 @@ export const getOrdersRequest = () => {
     const url = `${GET_ORDERS_URL}`;
     console.log(url);
 
-    return Axios.get(url);
-    // .then((res: any) => {
-    //     console.log(res);
-    // });
+    return Axios.get(url).then((res: any) => {
+        console.log(res);
+    });
 }
