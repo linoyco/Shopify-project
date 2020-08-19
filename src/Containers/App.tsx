@@ -11,6 +11,7 @@ const GlobalStyle = createGlobalStyle`
   html{
   height: 100%;
   font-family: arial;
+  overflow: hidden;
   }
   body {
     font-weight: bold;

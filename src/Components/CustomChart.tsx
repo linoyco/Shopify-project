@@ -30,19 +30,19 @@ const StyledPaper: any = styled(Paper)`
     padding: 0.5%;
 `;
 
-const CustomCart: React.FunctionComponent<IProps> = ({ big = false, color, total, title, xy, subTitle }) => {
+const CustomChart: React.FunctionComponent<IProps> = ({ big = false, color, total, title, xy, subTitle }) => {
 
     return (
         <StyledPaper>
             {title} <br />
             {big ? null : `$${total || ''}`}
-            <XYPlot style={{ color: 'black' }} height={110} width={big ? 650 : 235}>
+            <XYPlot style={{ color: 'black' }} height={110} width={big ? 750 : 235}>
                 {big ? <YAxis /> : null}
                 {big ? <XAxis /> : null}
-                <LineSeries curve={'curveMonotoneX'} data={xy || data} />
+                <LineSeries curve={'curveMonotoneX'} data={xy || data} color={color} />
             </XYPlot>
         </StyledPaper>
     );
 }
 
-export default CustomCart;
+export default CustomChart;

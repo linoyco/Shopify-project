@@ -2,7 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import { useSelector } from 'react-redux';
 
-import CustomCart from '../Components/CustomCart';
+import CustomChart from '../Components/CustomChart';
+import CustomCard from '../Components/CustomCard';
+import CustomTopProduct from '../Components/CustomTopProduct';
 
 const StyledDiv = styled.section`
     display: flex;
@@ -42,28 +44,34 @@ const HomePage: React.FunctionComponent = () => {
 
     return (
         <StyledDiv>
-            Dashboard
             <div className='MainDiv'>
                 <div className='ChartsDiv'>
-                    <CustomCart
+                    <CustomChart
                         xy={demoXY}
                         title='Sales'
                         total='5023'
+                        color='red'
                     />
-                    <CustomCart
+                    <CustomChart
                         title='Earn Money'
                         total='6326'
+                        color='blue'
                     />
-                    <CustomCart
+                    <CustomChart
                         title='Order'
                         total='4249'
+                        color='green'
                     />
                 </div>
-                <div>Will be Cards</div>
+                <div className='ChartsDiv'>
+                    <CustomCard />
+                    <CustomTopProduct />
+                </div>
                 <div>
-                    <CustomCart
+                    <CustomChart
                         big={true}
                         title='Revenue'
+                        color='#4ECAFE'
                     />
                 </div>
             </div>
