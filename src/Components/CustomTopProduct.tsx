@@ -37,7 +37,7 @@ const CustomTopProduct: React.FunctionComponent<IProps> = ({ productList }) => {
             <ListItemText primary={`$${productList[0].price || ''}`} />
             <ListItemText primary={''} />
             <ListItemText primary={'5 Items'} />
-            <ListItemText primary={''} />
+            <ListItemText primary={'20 Items'} />
             <Button className='Details' variant='outlined'>Details</Button>
         </ListItem>
         <Divider variant='middle' />
@@ -52,6 +52,7 @@ const CustomTopProduct: React.FunctionComponent<IProps> = ({ productList }) => {
                 <span>Price</span>
                 <span>Sold</span>
                 <span>Stack</span>
+                <span></span>
                 <span></span>
             </div>
             <List style={{ height: 180, }}>
