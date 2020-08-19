@@ -13,11 +13,15 @@ const StyledPaper: any = styled(Paper)`
         display: flex;
         justify-content: space-between;
     }
+
+    .Details{
+        color: #4ECAFE;
+    }
 `;
 
 interface IProps {
     subTitle?: string;
-    productList?: { photo: string, description: string, subDescription: string, price: string, sold: string, stack: string }[];
+    productList: { photo: string, description: string, subDescription: string, price: string, sold: string, stack: string }[];
 }
 
 const CustomTopProduct: React.FunctionComponent<IProps> = ({ productList, subTitle }) => (
@@ -32,16 +36,21 @@ const CustomTopProduct: React.FunctionComponent<IProps> = ({ productList, subTit
             <span></span>
         </div>
         <List style={{ height: 180, }}>
-
-            <ListItem>
-                <ListItemAvatar>
-                    <Avatar alt='img' src='' />
-                </ListItemAvatar>
-                <ListItemText primary='Linoy Cohen' secondary={subTitle || '$2500'} />
-                <Button>Details</Button>
-            </ListItem>
-
-            <Divider variant='middle' />
+            {productList.map((product, idx) => {
+                if (productList.length === 0) return <p></p>;
+                else return (
+                    <div key={idx}>
+                        <ListItem >
+                            <ListItemAvatar>
+                                <Avatar alt='img' src='' />
+                            </ListItemAvatar>
+                            <ListItemText primary={`${product.description || ''}`} secondary={`${product.subDescription}` || ''} />
+                            <Button className='Details' variant='outlined'>Details</Button>
+                        </ListItem>
+                        <Divider variant='middle' />
+                    </div>
+                )
+            })}
         </List>
     </StyledPaper>
 );

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { useSelector } from 'react-redux';
 
@@ -25,7 +25,15 @@ const StyledDiv = styled.section`
     }
 `;
 
+export interface IUser {
+    photo: string;
+    fullName: string;
+    total: string;
+}
+
 const HomePage: React.FunctionComponent = () => {
+
+    const [usersList, setUsersList] = useState<IUser[]>([]);
 
     const localData: Array<any> = useSelector((state: any) => state.app.data);
 
@@ -42,10 +50,58 @@ const HomePage: React.FunctionComponent = () => {
         { x: 9, y: 0 }
     ];
 
-    const users = [
-        { photo: '', firstName: 'string', lastName: 'string', total: 'string' },
-        { photo: '', firstName: 'string', lastName: 'string', total: 'string' },
-    ]
+    useEffect(() => {
+        createUsersList();
+    }, [localData])
+
+    const createUsersList = async () => {
+        let newList: IUser[] = [];
+        let newUser: IUser = {
+            fullName: '',
+            photo: '',
+            total: ''
+        };
+
+        localData.map((order, idx) => {
+            newUser = {
+                fullName: order.billing_address.name,
+                total: order.total_price,
+                photo: '',
+            }
+            newList.push(newUser);
+        });
+
+        let currentList: IUser[] = [];
+
+
+        // for (let i = 0; i < newList.length; i++) {
+        //     console.log('here');
+
+        //     for (let currentUser of currentList) {
+        //         console.log('hereeeee');
+
+        //     }
+        // }
+
+
+        // currentList.map(currentUser => {
+        //     console.log('hereeeee');
+
+        //     if (currentUser.fullName === user.fullName) {
+        //         currentUser.total = currentUser.total + user.total;
+        //         console.log(currentUser.total);
+
+        //     }
+        //     currentList.push(user);
+        //     console.log(user);
+
+        // });
+
+
+
+        
+
+    }
 
     return (
         <StyledDiv>
@@ -69,8 +125,8 @@ const HomePage: React.FunctionComponent = () => {
                     />
                 </div>
                 <div className='ChartsDiv'>
-                    <CustomCard usersList={users} />
-                    <CustomTopProduct />
+                    <CustomCard usersList={usersList} />
+                    {/* <CustomTopProduct /> */}
                 </div>
                 <div>
                     <CustomChart

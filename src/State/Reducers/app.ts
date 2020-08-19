@@ -15,6 +15,7 @@ export function appReducer(state: IAppState = initialState, action: appActionTyp
         switch (action.type) {
             case SAVE_DATA:
                 draft.data = action.data;
+                console.log(action.data);
                 break;
         }
     });
