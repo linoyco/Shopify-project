@@ -70,48 +70,27 @@ const HomePage: React.FunctionComponent = () => {
             }
             newList.push(newUser);
         });
-        setUsersList(newList)
 
         let currentList: IUser[] = [];
-
-        const myArray: IUser[] = newList.reduce((user: IUser[], item) => user.includes(item) ? user : [...user, item], [])
-        console.log(myArray);
-
 
         for (let i = 0; i < newList.length; i++) {
             if (currentList.length === 0) {
                 currentList.push(newList[i]);
             }
+            let checkup = null;
+            checkup = currentList.find(obj => { return obj.fullName === newList[i].fullName });
 
-
-
-            // currentList.find(current => current.fullName === newList[i].fullName )
-
-
-
-            // else {
-            //     for(let current of currentList){
-            //         (newList[i].fullName === current.fullName) ?
-            //          current.total = current.total + newList[i].total : 
-            //          currentList.push(newList[i])
-            //     }
-            // }
-
-
-
-            // else currentList.map(current => {
-            //     if (newList[i].fullName === current.fullName) {
-            //         console.log(newList[i].fullName, current.fullName);
-
-            //         current.total = current.total + newList[i].total
-            //     }
-            //     else if () {
-            //         currentList.push(newList[i]);
-            //     }
-            // })
-
+            if(checkup===undefined) {
+                currentList.push(newList[i]);
+            } else {
+                console.log("calculate total price");
+            }
         }
         console.log(currentList);
+        setUsersList(currentList);
+
+
+        
     }
 
     return (
