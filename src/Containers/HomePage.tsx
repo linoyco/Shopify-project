@@ -42,6 +42,11 @@ const HomePage: React.FunctionComponent = () => {
         { x: 9, y: 0 }
     ];
 
+    const users = [
+        { photo: '', firstName: 'string', lastName: 'string', total: 'string' },
+        { photo: '', firstName: 'string', lastName: 'string', total: 'string' },
+    ]
+
     return (
         <StyledDiv>
             <div className='MainDiv'>
@@ -64,7 +69,7 @@ const HomePage: React.FunctionComponent = () => {
                     />
                 </div>
                 <div className='ChartsDiv'>
-                    <CustomCard />
+                    <CustomCard usersList={users} />
                     <CustomTopProduct />
                 </div>
                 <div>
