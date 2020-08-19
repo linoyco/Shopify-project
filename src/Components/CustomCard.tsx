@@ -9,8 +9,8 @@ const StyledPaper: any = styled(Paper)`
     margin-bottom: 1%;
 
     .UserImg{
-        width: 2vw;
-        height: 2vw;
+        width: 3vw;
+        height: 3vw;
     }
 
     .Profile{

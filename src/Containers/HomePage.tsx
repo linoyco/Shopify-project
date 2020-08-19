@@ -52,7 +52,7 @@ const HomePage: React.FunctionComponent = () => {
 
     useEffect(() => {
         createUsersList();
-    }, [localData])
+    }, [localData]);
 
     const createUsersList = async () => {
         let newList: IUser[] = [];
@@ -72,25 +72,21 @@ const HomePage: React.FunctionComponent = () => {
         });
 
         let currentList: IUser[] = [];
-
         for (let i = 0; i < newList.length; i++) {
-            if (currentList.length === 0) {
-                currentList.push(newList[i]);
-            }
-            let checkup = null;
+            let checkup: IUser | undefined = undefined;
             checkup = currentList.find(obj => { return obj.fullName === newList[i].fullName });
 
-            if(checkup===undefined) {
+            if (checkup === undefined) {
                 currentList.push(newList[i]);
             } else {
-                console.log("calculate total price");
+                currentList.map(user => {
+                    if (user.fullName === checkup?.fullName)
+                        user.total = `${parseInt(user.total) + parseInt(checkup.total)}`;
+                });
             }
         }
         console.log(currentList);
         setUsersList(currentList);
-
-
-        
     }
 
     return (
