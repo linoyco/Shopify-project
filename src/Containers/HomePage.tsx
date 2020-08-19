@@ -62,7 +62,7 @@ const HomePage: React.FunctionComponent = () => {
             total: ''
         };
 
-        localData.map((order, idx) => {
+        localData.map(order => {
             newUser = {
                 fullName: order.billing_address.name,
                 total: order.total_price,
@@ -70,37 +70,48 @@ const HomePage: React.FunctionComponent = () => {
             }
             newList.push(newUser);
         });
+        setUsersList(newList)
 
         let currentList: IUser[] = [];
 
-
-        // for (let i = 0; i < newList.length; i++) {
-        //     console.log('here');
-
-        //     for (let currentUser of currentList) {
-        //         console.log('hereeeee');
-
-        //     }
-        // }
+        const myArray: IUser[] = newList.reduce((user: IUser[], item) => user.includes(item) ? user : [...user, item], [])
+        console.log(myArray);
 
 
-        // currentList.map(currentUser => {
-        //     console.log('hereeeee');
-
-        //     if (currentUser.fullName === user.fullName) {
-        //         currentUser.total = currentUser.total + user.total;
-        //         console.log(currentUser.total);
-
-        //     }
-        //     currentList.push(user);
-        //     console.log(user);
-
-        // });
+        for (let i = 0; i < newList.length; i++) {
+            if (currentList.length === 0) {
+                currentList.push(newList[i]);
+            }
 
 
 
-        
+            // currentList.find(current => current.fullName === newList[i].fullName )
 
+
+
+            // else {
+            //     for(let current of currentList){
+            //         (newList[i].fullName === current.fullName) ?
+            //          current.total = current.total + newList[i].total : 
+            //          currentList.push(newList[i])
+            //     }
+            // }
+
+
+
+            // else currentList.map(current => {
+            //     if (newList[i].fullName === current.fullName) {
+            //         console.log(newList[i].fullName, current.fullName);
+
+            //         current.total = current.total + newList[i].total
+            //     }
+            //     else if () {
+            //         currentList.push(newList[i]);
+            //     }
+            // })
+
+        }
+        console.log(currentList);
     }
 
     return (
