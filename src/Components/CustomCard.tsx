@@ -10,11 +10,11 @@ const StyledPaper: any = styled(Paper)`
 `;
 
 interface IProps {
-    subTitle?: string;
-    usersList?: { photo: string, name: string }[];
+    total?: string;
+    usersList?: { photo: string, firstName: string, lastName: string }[];
 }
 
-const CustomCard: React.FunctionComponent<IProps> = ({ usersList, subTitle }) => (
+const CustomCard: React.FunctionComponent<IProps> = ({ usersList, total }) => (
     <StyledPaper>
         Best Seller
         <List style={{ width: 235, height: 180 }}>
@@ -23,7 +23,7 @@ const CustomCard: React.FunctionComponent<IProps> = ({ usersList, subTitle }) =>
                 <ListItemAvatar>
                     <Avatar alt='img' src='' />
                 </ListItemAvatar>
-                <ListItemText primary='Linoy Cohen' secondary={subTitle || '$2500'} />
+                <ListItemText primary='Linoy Cohen' secondary={total || '$2500'} />
             </ListItem>
 
             <Divider variant='middle' />
