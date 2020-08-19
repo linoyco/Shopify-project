@@ -1,6 +1,7 @@
 import React from 'react';
-import { Paper, List, ListItem, Divider, ListItemText, ListItemAvatar, Avatar, Typography, Button } from '@material-ui/core';
+import { Paper, List, ListItem, Divider, ListItemText, ListItemAvatar, Avatar } from '@material-ui/core';
 import styled from 'styled-components';
+
 import { IUser } from '../Containers/HomePage';
 
 const StyledPaper: any = styled(Paper)`
@@ -28,7 +29,6 @@ const CustomCard: React.FunctionComponent<IProps> = ({ usersList }) => (
     <StyledPaper>
         buyers
         <List style={{ width: 235, height: 180 }}>
-
             {usersList.map((user, idx) => {
                 if (usersList.length === 0) return <p></p>;
                 else return (

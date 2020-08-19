@@ -81,7 +81,7 @@ const HomePage: React.FunctionComponent = () => {
             } else {
                 currentList.map(user => {
                     if (user.fullName === checkup?.fullName)
-                        user.total = `${parseInt(user.total) + parseInt(checkup.total)}`;
+                        user.total = `${parseInt(user.total) + parseInt(newList[i].total)}`;
                 });
             }
         }
