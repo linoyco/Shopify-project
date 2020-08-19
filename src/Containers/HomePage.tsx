@@ -109,9 +109,7 @@ const HomePage: React.FunctionComponent = () => {
             sold: '',
             stack: ''
         };
-
-        console.log('>>>>', localData);
-
+        
         localData.map(order => {
             newProduct = {
                 photo: '',

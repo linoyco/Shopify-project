@@ -7,7 +7,7 @@ import { PermIdentity, Computer, History, Payment, SettingsOutlined } from '@mat
 const StyledDiv = styled.section`
 	display: flex;
 	justify-content: center;
-	height: 100vh;
+	height: 104vh;
     width: 30vw;
     max-width: 220px;
 	background-color: #173147;

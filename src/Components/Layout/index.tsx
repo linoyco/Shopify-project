@@ -13,7 +13,7 @@ const StyledDiv = styled.div`
     }
     .Main{
         background-color: #EAECEC;
-        height: 86vh;
+        height: 90vh;
         padding: 2vw;
     }
 `;

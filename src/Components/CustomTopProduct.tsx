@@ -25,50 +25,58 @@ interface IProps {
     productList: IProduct[];
 }
 
-const CustomTopProduct: React.FunctionComponent<IProps> = ({ productList }) => (
-    <StyledPaper>
-        Top Product <br />
-        <div className='Columns'>
-            <span>Photo</span>
-            <span>Description</span>
-            <span>Price</span>
-            <span>Sold</span>
-            <span>Stack</span>
-            <span></span>
-        </div>
-        <List style={{ height: 180, }}>
-            {/* {productList.map((product, idx) => {
-                if (productList.length === 0) return <p></p>;
-                else return (
-                    <div key={idx}>
-                        <ListItem >
-                            <ListItemAvatar>
-                                <Avatar alt='img' src='' />
-                            </ListItemAvatar>
-                            <ListItemText primary={`${product.description || ''}`} secondary={`${product.subDescription}` || ''} />
-                            <ListItemText primary={`$${product.price || ''}`} />
-                            <Button className='Details' variant='outlined'>Details</Button>
-                        </ListItem>
-                        <Divider variant='middle' />
-                    </div>
-                )
-            })} */}
+const CustomTopProduct: React.FunctionComponent<IProps> = ({ productList }) => {
 
+    const productItem = (productList.length === 0) ? <p></p> : <div>
+        <ListItem >
+            <ListItemAvatar>
+                <Avatar alt='img' src='' />
+            </ListItemAvatar>
+            <ListItemText primary={''} />
+            <ListItemText primary={`${productList[0].description || ''}`} secondary={`${productList[0].subDescription}` || ''} />
+            <ListItemText primary={`$${productList[0].price || ''}`} />
+            <ListItemText primary={''} />
+            <ListItemText primary={'5 Items'} />
+            <ListItemText primary={''} />
+            <Button className='Details' variant='outlined'>Details</Button>
+        </ListItem>
+        <Divider variant='middle' />
+    </div>;
 
-            <ListItem >
-                <ListItemAvatar>
-                    <Avatar alt='img' src='' />
-                </ListItemAvatar>
-                <ListItemText primary={`${productList[1].description || ''}`} secondary={`${productList[1].subDescription}` || ''} />
-                <ListItemText primary={`$${productList[1].price || ''}`} />
-                <Button className='Details' variant='outlined'>Details</Button>
-            </ListItem>
-            <Divider variant='middle' />
+    return (
+        <StyledPaper>
+            Top Product <br />
+            <div className='Columns'>
+                <span>Photo</span>
+                <span>Description</span>
+                <span>Price</span>
+                <span>Sold</span>
+                <span>Stack</span>
+                <span></span>
+            </div>
+            <List style={{ height: 180, }}>
 
+                {/* {productList.map((product, idx) => {
+                    if (productList.length === 0) return <p></p>;
+                    else return (
+                        <div key={idx}>
+                            <ListItem>
+                                <ListItemAvatar>
+                                    <Avatar alt='img' src='' />
+                                </ListItemAvatar>
+                                <ListItemText primary={`${product.description || ''}`} secondary={`${product.subDescription}` || ''} />
+                                <ListItemText primary={`$${product.price || ''}`} />
+                                <Button className='Details' variant='outlined'>Details</Button>
+                            </ListItem>
+                            <Divider variant='middle' />
+                        </div>
+                    )
+                })} */}
 
-
-        </List>
-    </StyledPaper>
-);
+                {productItem}
+            </List>
+        </StyledPaper>
+    );
+}
 
 export default CustomTopProduct;
