@@ -1,6 +1,7 @@
 import React from 'react';
 import { Paper, List, ListItem, Divider, ListItemText, ListItemAvatar, Avatar, Button } from '@material-ui/core';
 import styled from 'styled-components';
+import { IProduct } from '../Containers/HomePage';
 
 const StyledPaper: any = styled(Paper)`
     padding: 0.5%;
@@ -12,6 +13,7 @@ const StyledPaper: any = styled(Paper)`
     .Columns{
         display: flex;
         justify-content: space-between;
+        font-weight: normal;
     }
 
     .Details{
@@ -20,11 +22,10 @@ const StyledPaper: any = styled(Paper)`
 `;
 
 interface IProps {
-    subTitle?: string;
-    productList: { photo: string, description: string, subDescription: string, price: string, sold: string, stack: string }[];
+    productList: IProduct[];
 }
 
-const CustomTopProduct: React.FunctionComponent<IProps> = ({ productList, subTitle }) => (
+const CustomTopProduct: React.FunctionComponent<IProps> = ({ productList }) => (
     <StyledPaper>
         Top Product <br />
         <div className='Columns'>
@@ -36,7 +37,7 @@ const CustomTopProduct: React.FunctionComponent<IProps> = ({ productList, subTit
             <span></span>
         </div>
         <List style={{ height: 180, }}>
-            {productList.map((product, idx) => {
+            {/* {productList.map((product, idx) => {
                 if (productList.length === 0) return <p></p>;
                 else return (
                     <div key={idx}>
@@ -45,12 +46,27 @@ const CustomTopProduct: React.FunctionComponent<IProps> = ({ productList, subTit
                                 <Avatar alt='img' src='' />
                             </ListItemAvatar>
                             <ListItemText primary={`${product.description || ''}`} secondary={`${product.subDescription}` || ''} />
+                            <ListItemText primary={`$${product.price || ''}`} />
                             <Button className='Details' variant='outlined'>Details</Button>
                         </ListItem>
                         <Divider variant='middle' />
                     </div>
                 )
-            })}
+            })} */}
+
+
+            <ListItem >
+                <ListItemAvatar>
+                    <Avatar alt='img' src='' />
+                </ListItemAvatar>
+                <ListItemText primary={`${productList[1].description || ''}`} secondary={`${productList[1].subDescription}` || ''} />
+                <ListItemText primary={`$${productList[1].price || ''}`} />
+                <Button className='Details' variant='outlined'>Details</Button>
+            </ListItem>
+            <Divider variant='middle' />
+
+
+
         </List>
     </StyledPaper>
 );

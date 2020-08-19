@@ -31,9 +31,19 @@ export interface IUser {
     total: string;
 }
 
+export interface IProduct {
+    photo: string,
+    description: string,
+    subDescription: string,
+    price: string,
+    sold: string,
+    stack: string
+}
+
 const HomePage: React.FunctionComponent = () => {
 
     const [usersList, setUsersList] = useState<IUser[]>([]);
+    const [productList, setProductList] = useState<IProduct[]>([]);
 
     const localData: Array<any> = useSelector((state: any) => state.app.data);
 
@@ -52,6 +62,7 @@ const HomePage: React.FunctionComponent = () => {
 
     useEffect(() => {
         createUsersList();
+        createProductList();
     }, [localData]);
 
     const createUsersList = async () => {
@@ -85,8 +96,34 @@ const HomePage: React.FunctionComponent = () => {
                 });
             }
         }
-        console.log(currentList);
         setUsersList(currentList);
+    }
+
+    const createProductList = async () => {
+        let newList: IProduct[] = [];
+        let newProduct: IProduct = {
+            photo: '',
+            description: '',
+            subDescription: '',
+            price: '',
+            sold: '',
+            stack: ''
+        };
+
+        console.log('>>>>', localData);
+
+        localData.map(order => {
+            newProduct = {
+                photo: '',
+                description: order.line_items[0].title,
+                subDescription: '',
+                price: order.line_items[0].price,
+                sold: '',
+                stack: ''
+            }
+            newList.push(newProduct);
+        });
+        setProductList(newList);
     }
 
     return (
@@ -112,7 +149,7 @@ const HomePage: React.FunctionComponent = () => {
                 </div>
                 <div className='ChartsDiv'>
                     <CustomCard usersList={usersList} />
-                    {/* <CustomTopProduct /> */}
+                    <CustomTopProduct productList={productList} />
                 </div>
                 <div>
                     <CustomChart
